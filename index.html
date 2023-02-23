@@ -188,19 +188,19 @@
                     <div class="col-lg-8">
                         <form action="#" class="row g-lg-3 gy-3">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="Enter Your Name">
+                                <input type="text" class="form-control" placeholder="Enter Your Name" id="name">
                             </div>
 
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" placeholder="Enter Your Email">
+                                <input type="email" class="form-control" placeholder="Enter Your Email" id="gmail">
                             </div>
 
                             <div class="form-group col-12">
-                                <input type="text" class="form-control" placeholder="Enter the Subject">
+                                <input type="text" class="form-control" placeholder="Enter the Subject" id="subject">
                             </div>
 
                             <div class="form-group col-12">
-                                <textarea name="" rows="4" class="form-control" placeholder="Enter Your Message"></textarea>
+                                <textarea name="" rows="4" class="form-control" placeholder="Enter Your Message" id="message"></textarea>
                             </div>
 
                             <div class="form-group col-12 d-grid">
@@ -240,6 +240,25 @@
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/aos.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+            Host : "smtp.gmail.com",
+            Username : "singhishant2108@gmail.com",
+            Password : "Ishant@2608",
+            To : 'singhishant2108@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "New Contact form Enquiry",
+            Body : "Name: "+ document.getElementById("name").value
+                    + "<br> Email: " + document.getElementById("gmail").value
+                    + "<br> Subject: " + document.getElementById("subject").value
+                    + "<br> Message: " + document.getElementById("message").value
+            }).then(
+            message => alert("Message Sent Succesfully")
+            );
+        }
+    </script>
 </body>
 
 </html>
